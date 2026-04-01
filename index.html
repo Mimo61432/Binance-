@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crypto Portal</title>
+
+<style>
+body{
+margin:0;
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+background:radial-gradient(circle at top,#1b2233,#0b0f17);
+color:#e6e6e6;
+}
+
+.container{
+max-width:450px;
+margin:auto;
+padding:30px 20px;
+}
+
+.title{
+font-size:24px;
+font-weight:700;
+margin-bottom:15px;
+}
+
+input{
+width:100%;
+padding:14px;
+border-radius:10px;
+border:none;
+background:#11151f;
+color:white;
+margin-bottom:20px;
+}
+
+.card{
+background:rgba(255,255,255,0.05);
+padding:18px;
+border-radius:14px;
+margin-top:15px;
+}
+
+.crypto{
+padding:14px;
+border-radius:12px;
+background:rgba(255,255,255,0.04);
+margin-top:10px;
+cursor:pointer;
+}
+
+button{
+width:100%;
+padding:14px;
+margin-top:15px;
+border:none;
+border-radius:10px;
+background:#f0b90b;
+font-weight:600;
+cursor:pointer;
+}
+
+.hidden{
+display:none;
+}
+
+.label{
+color:#9aa3b2;
+font-size:12px;
+margin-top:10px;
+}
+
+.value{
+font-size:15px;
+font-weight:500;
+cursor:pointer;
+}
+
+.success{
+margin-top:20px;
+color:#7CFF9B;
+font-weight:600;
+text-align:center;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- PAGE 1 -->
+<div id="page1">
+
+<div class="title">Crypto Market</div>
+
+<input placeholder="Search UID">
+
+<div class="crypto" onclick="goPage2()">Bitcoin (BTC)</div>
+<div class="crypto" onclick="goPage2()">Ethereum (ETH)</div>
+<div class="crypto" onclick="goPage2()">Solana (SOL)</div>
+<div class="crypto" onclick="goPage2()">Ripple (XRP)</div>
+<div class="crypto" onclick="goPage2()">Cardano (ADA)</div>
+<div class="crypto" onclick="goPage2()">Dogecoin (DOGE)</div>
+<div class="crypto" onclick="goPage2()">Polkadot (DOT)</div>
+<div class="crypto" onclick="goPage2()">Litecoin (LTC)</div>
+<div class="crypto" onclick="goPage2()">Chainlink (LINK)</div>
+<div class="crypto" onclick="goPage2()">Avalanche (AVAX)</div>
+
+</div>
+
+<!-- PAGE 2 -->
+<div id="page2" class="hidden">
+
+<div class="title">User Profile</div>
+
+<div class="card">
+
+<div class="label">Name</div>
+<div class="value">Abhijit Kundu</div>
+
+<div class="label">UID</div>
+<div class="value">4839201745</div>
+
+<div class="label">Email</div>
+<div class="value">KXXXXX0@gmail.com</div>
+
+<div class="label">Total Assets</div>
+<div class="value">XXX</div>
+
+<div class="label">Withdrawable Assets</div>
+<div class="value" onclick="goPage3()">XXX</div>
+
+<div class="label">Other Funds (Not Accessible)</div>
+<div class="value">XXX</div>
+
+</div>
+
+</div>
+
+<!-- PAGE 3 -->
+<div id="page3" class="hidden">
+
+<div class="title">Withdraw Funds</div>
+
+<input id="amount" placeholder="Enter Amount ($)">
+
+<button onclick="showMethods()">OK</button>
+
+<!-- PAYMENT METHODS -->
+<div id="methods" class="hidden">
+
+<div class="card">
+<div class="value" onclick="selectMethod()">Bank Transfer</div>
+<div class="value" onclick="selectMethod()">UPI</div>
+<div class="value" onclick="selectMethod()">Digital e-Rupi</div>
+</div>
+
+</div>
+
+<!-- FORM -->
+<div id="form" class="hidden">
+
+<input placeholder="Phone Number">
+<input placeholder="Address">
+
+<button onclick="finalSuccess()">OK</button>
+
+</div>
+
+<div id="success" class="success hidden">
+Successfully Withdrawn
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function goPage2(){
+document.getElementById("page1").classList.add("hidden");
+document.getElementById("page2").classList.remove("hidden");
+}
+
+function goPage3(){
+document.getElementById("page2").classList.add("hidden");
+document.getElementById("page3").classList.remove("hidden");
+}
+
+function showMethods(){
+document.getElementById("methods").classList.remove("hidden");
+}
+
+function selectMethod(){
+document.getElementById("form").classList.remove("hidden");
+}
+
+function finalSuccess(){
+document.getElementById("success").classList.remove("hidden");
+}
+
+</script>
+
+</body>
+</html>
